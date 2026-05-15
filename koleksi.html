@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Littlerasi</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#fff9f2;
+    color:#444;
+    font-family:'Fredoka', sans-serif;
+}
+
+/* HEADER */
+
+header{
+    background:#ffb703;
+    padding:18px 8%;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.logo{
+    color:white;
+    font-size:30px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:600;
+}
+
+.logo-icon{
+    width:80px;
+    height:80px;
+    object-fit:contain;
+}
+
+nav ul{
+            display:flex;
+            list-style:none;
+            gap:25px;
+        }
+
+        nav ul li a{
+            text-decoration:none;
+            color:white;
+            font-size:17px;
+            transition:0.3s;
+            position:relative;
+        }
+
+        nav ul li a::after{
+            content:'';
+            width:0;
+            height:3px;
+            background:white;
+            position:absolute;
+            left:0;
+            bottom:-7px;
+            border-radius:10px;
+            transition:0.3s;
+        }
+
+        nav ul li a:hover::after{
+            width:100%;
+        }
+
+/* OPAC */
+
+.opac{
+    padding:40px 10%;
+}
+
+.opac-box{
+    background:white;
+    padding:35px;
+    border-radius:30px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom:50px;
+}
+
+.opac-box h2{
+    color:#8338ec;
+    margin-bottom:25px;
+    text-align:center;
+    font-size:35px;
+}
+
+.search-box{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.search-box input{
+    width:500px;
+    max-width:100%;
+    padding:15px 20px;
+    border:none;
+    border-radius:40px;
+    background:#f5f5f5;
+    font-size:16px;
+    outline:none;
+}
+
+.search-box button{
+    padding:15px 30px;
+    border:none;
+    border-radius:40px;
+    background:#ff6b6b;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    font-family:'Fredoka', sans-serif;
+}
+
+/* KATEGORI */
+
+.kategori{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-top:25px;
+}
+
+.kategori button{
+    border:none;
+    padding:10px 20px;
+    border-radius:30px;
+    background:#fff3d6;
+    cursor:pointer;
+    transition:0.3s;
+    font-family:'Fredoka', sans-serif;
+    font-weight:bold;
+}
+
+.kategori button:hover{
+    background:#ffb703;
+    color:white;
+}
+
+/* TITLE */
+
+.title{
+    text-align:center;
+    padding:20px 10% 30px;
+}
+
+.title h1{
+    font-size:50px;
+    color:#8338ec;
+    margin-bottom:15px;
+}
+
+.title p{
+    font-size:20px;
+    line-height:1.8;
+}
+
+/* MENU */
+
+.koleksi-menu{
+    padding:20px 10% 80px;
+}
+
+.menu-header{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.menu-header h2{
+    font-size:40px;
+    color:#8338ec;
+    margin-bottom:10px;
+}
+
+.menu-tabs{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-bottom:40px;
+}
+
+.tab-btn{
+    border:none;
+    padding:14px 28px;
+    border-radius:40px;
+    background:white;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+    font-family:'Fredoka', sans-serif;
+    font-weight:bold;
+}
+
+.tab-btn:hover{
+    transform:translateY(-5px);
+}
+
+.tab-btn.active{
+    background:#8338ec;
+    color:white;
+}
+
+.tab-content{
+    display:none;
+}
+
+.tab-content.active{
+    display:block;
+}
+
+/* GRID */
+
+.koleksi-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+/* CARD */
+
+.koleksi-card{
+    background:white;
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    position:relative;
+    transition:0.3s;
+}
+
+.koleksi-card:hover{
+    transform:translateY(-10px);
+}
+
+.koleksi-card img{
+    width:100%;
+    height:270px;
+    object-fit:cover;
+}
+
+.badge{
+    position:absolute;
+    top:15px;
+    left:15px;
+    background:#ff6b6b;
+    color:white;
+    padding:8px 15px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.koleksi-info{
+    padding:25px;
+}
+
+.koleksi-info h3{
+    color:#ff6b6b;
+    margin-bottom:10px;
+}
+
+.penulis{
+    margin-bottom:15px;
+}
+
+.penulis span{
+    font-weight:bold;
+}
+
+.mini-info{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:20px;
+    font-size:14px;
+}
+
+.mini-info span{
+    font-weight:bold;
+    background:#fff3d6;
+    padding:7px 12px;
+    border-radius:20px;
+}
+
+.detail-buku{
+    background:#fff3d6;
+    padding:15px;
+    border-radius:20px;
+    margin-top:15px;
+    display:none;
+    line-height:1.8;
+}
+
+.detail-buku.show{
+    display:block;
+}
+
+.detail-buku span{
+    font-weight:bold;
+}
+
+.status-tersedia{
+    color:#16a34a;
+    font-weight:bold;
+}
+
+.status-dipinjam{
+    color:#dc2626;
+    font-weight:bold;
+}
+
+.koleksi-btn{
+    display:inline-block;
+    padding:12px 22px;
+    background:#8338ec;
+    color:white;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    font-family:'Fredoka', sans-serif;
+    font-weight:bold;
+}
+
+/* FOLDER */
+
+.folder-box{
+    background:white;
+    padding:30px;
+    border-radius:30px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+.folder-btn{
+    width:100%;
+    border:none;
+    padding:18px;
+    border-radius:20px;
+    background:#fff3d6;
+    margin-bottom:15px;
+    font-size:18px;
+    text-align:left;
+    cursor:pointer;
+    font-family:'Fredoka', sans-serif;
+    font-weight:bold;
+}
+
+.folder-content{
+    display:none;
+    padding:15px 0 25px;
+}
+
+.folder-content.show{
+    display:block;
+}
+
+.folder-gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:15px;
+}
+
+.folder-gallery img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    border-radius:20px;
+}
+
+/* FOOTER */
+
+footer{
+            background:#ffb703;
+            text-align:center;
+            color:white;
+            padding:20px;
+        }
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+nav{
+    justify-content:center;
+    gap:20px;
+}
+
+nav ul{
+    justify-content:center;
+}
+
+.title h1{
+    font-size:35px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<nav>
+
+<h1 class="logo">
+<img src="icon.png" class="logo-icon">
+Littlerasi
+</h1>
+
+<ul>
+<li><a href="index.html">Beranda</a></li>
+<li><a href="profil.html">Profil</a></li>
+<li><a href="koleksi.html">Koleksi</a></li>
+<li><a href="layanan.html">Layanan</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="kontak.html">Kontak</a></li>
+</ul>
+
+</nav>
+
+</header>
+
+<section class="opac">
+
+<div class="opac-box">
+
+<h2>OPAC Littlerasi</h2>
+
+<div class="search-box">
+
+<input 
+type="text" 
+id="searchInput"
+placeholder="Cari judul buku, penulis, atau subjek...">
+
+<button onclick="cariBuku()">
+Cari
+</button>
+
+</div>
+
+<div class="kategori">
+
+<button>Dongeng</button>
+<button>Komik</button>
+<button>Edukasi</button>
+<button>Ensiklopedia</button>
+<button>Game Literasi</button>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="title">
+
+<h1>Koleksi Littlerasi</h1>
+
+<p>
+Jelajahi koleksi buku, media digital, dan arsip kreativitas anak
+dalam suasana perpustakaan digital yang seru dan menarik.
+</p>
+
+</section>
+
+<section class="koleksi-menu">
+
+<div class="menu-header">
+
+<h2>Menu Koleksi</h2>
+
+<p>Pilih koleksi favoritmu!</p>
+
+</div>
+
+<div class="menu-tabs">
+
+<button class="tab-btn active" onclick="showTab('buku', event)">
+Koleksi Buku
+</button>
+
+<button class="tab-btn" onclick="showTab('digital', event)">
+Koleksi Digital
+</button>
+
+<button class="tab-btn" onclick="showTab('arsip', event)">
+Arsip Kreativitas
+</button>
+
+</div>
+
+<!-- BUKU -->
+
+<div class="tab-content active" id="buku">
+
+<div class="koleksi-grid">
+
+<!-- 1 -->
+<div class="koleksi-card" data-title="Tubuhku hebat">
+
+<div class="badge">Populer</div>
+
+<img src="buku1.png">
+
+<div class="koleksi-info">
+
+<h3>Tubuhku hebat</h3>
+
+<p class="penulis"><span>Penulis :</span> Tria Ayu K.</p>
+
+<div class="mini-info">
+<span>Edukasi</span>
+<span>4.9</span>
+</div>
+
+<button class="koleksi-btn" onclick="toggleDetail(this)">
+Detail Buku
+</button>
+
+<div class="detail-buku">
+
+<p><span>Lokasi :</span> Lantai 1, Rak A01</p>
+
+<p class="status-tersedia">
+Tersedia
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 2 -->
+<div class="koleksi-card" data-title="dunia dinosaurus">
+
+<div class="badge">Favorit</div>
+
+<img src="buku2.png">
+
+<div class="koleksi-info">
+
+<h3>Lihat, Gigiku Sehat!</h3>
+
+<p class="penulis"><span>Penulis :</span> Beby Haryanti Dewi</p>
+
+<div class="mini-info">
+<span>Edukasi</span>
+<span>4.8</span>
+</div>
+
+<button class="koleksi-btn" onclick="toggleDetail(this)">
+Detail Buku
+</button>
+
+<div class="detail-buku">
+
+<p><span>Lokasi :</span> Lantai 2, Rak B12</p>
+
+<p class="status-dipinjam">
+Sedang Dipinjam
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 3 -->
+<div class="koleksi-card" data-title="komik anak pintar">
+
+<div class="badge">Baru</div>
+
+<img src="buku3.jpg">
+
+<div class="koleksi-info">
+
+<h3>SAAT AKU TAKUT</h3>
+
+<p class="penulis"><span>Penulis :</span>S. Shinta</p>
+
+<div class="mini-info">
+<span>Fiksi Anak</span>
+<span>5.0</span>
+</div>
+
+<button class="koleksi-btn" onclick="toggleDetail(this)">
+Detail Buku
+</button>
+
+<div class="detail-buku">
+
+<p><span>Lokasi :</span> Lantai 3, Rak C07</p>
+
+<p class="status-tersedia">
+Tersedia
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 4 -->
+<div class="koleksi-card" data-title="cerita negeri pelangi">
+
+<div class="badge">Rekomendasi</div>
+
+<img src="buku4.jpg">
+
+<div class="koleksi-info">
+
+<h3>Cerita Negeri Pelangi</h3>
+
+<p class="penulis"><span>Penulis :</span> Salsa Wijaya</p>
+
+<div class="mini-info">
+<span>?? Dongeng</span>
+<span>? 4.7</span>
+</div>
+
+<button class="koleksi-btn" onclick="toggleDetail(this)">
+Detail Buku
+</button>
+
+<div class="detail-buku">
+
+<p><span>Lokasi :</span> Lantai 1, Rak D04</p>
+
+<p class="status-tersedia">
+Tersedia
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 5 -->
+<div class="koleksi-card" data-title="hewan lucu di hutan">
+
+<div class="badge">Anak Favorit</div>
+
+<img src="buku5.jpg">
+
+<div class="koleksi-info">
+
+<h3>Hewan Lucu di Hutan</h3>
+
+<p class="penulis"><span>Penulis :</span> Citra Melani</p>
+
+<div class="mini-info">
+<span>?? Ensiklopedia</span>
+<span>? 4.9</span>
+</div>
+
+<button class="koleksi-btn" onclick="toggleDetail(this)">
+Detail Buku
+</button>
+
+<div class="detail-buku">
+
+<p><span>Lokasi :</span> Lantai 2, Rak E02</p>
+
+<p class="status-dipinjam">
+Sedang Dipinjam
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 6 -->
+<div class="koleksi-card" data-title="belajar angka">
+
+<div class="badge">Best Seller</div>
+
+<img src="buku6.jpg">
+
+<div class="koleksi-info">
+
+<h3>Belajar Angka</h3>
+
+<p class="penulis"><span>Penulis :</span> Dina Larasati</p>
+
+<div class="mini-info">
+<span>?? Edukasi</span>
+<span>? 4.8</span>
+</div>
+
+<button class="koleksi-btn" onclick="toggleDetail(this)">
+Detail Buku
+</button>
+
+<div class="detail-buku">
+
+<p><span>Lokasi :</span> Lantai 1, Rak A10</p>
+
+<p class="status-tersedia">
+Tersedia
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 7 -->
+<div class="koleksi-card" data-title="petualangan luar angkasa">
+
+<div class="badge">Seru</div>
+
+<img src="buku7.jpg">
+
+<div class="koleksi-info">
+
+<h3>Petualangan Luar Angkasa</h3>
+
+<p class="penulis"><span>Penulis :</span> Fajar Ramadhan</p>
+
+<div class="mini-info">
+<span>?? Ensiklopedia</span>
+<span>? 4.6</span>
+</div>
+
+<button class="koleksi-btn" onclick="toggleDetail(this)">
+Detail Buku
+</button>
+
+<div class="detail-buku">
+
+<p><span>Lokasi :</span> Lantai 2, Rak B08</p>
+
+<p class="status-tersedia">
+Tersedia
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 8 -->
+<div class="koleksi-card" data-title="dongeng putri laut">
+
+<div class="badge">Pilihan Anak</div>
+
+<img src="buku8.jpg">
+
+<div class="koleksi-info">
+
+<h3>Dongeng Putri Laut</h3>
+
+<p class="penulis"><span>Penulis :</span> Lala Kurnia</p>
+
+<div class="mini-info">
+<span>?? Dongeng</span>
+<span>? 4.9</span>
+</div>
+
+<button class="koleksi-btn" onclick="toggleDetail(this)">
+Detail Buku
+</button>
+
+<div class="detail-buku">
+
+<p><span>Lokasi :</span> Lantai 1, Rak A03</p>
+
+<p class="status-dipinjam">
+Sedang Dipinjam
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 9 -->
+<div class="koleksi-card" data-title="komik petualang cilik">
+
+<div class="badge">Trending</div>
+
+<img src="buku9.jpg">
+
+<div class="koleksi-info">
+
+<h3>Komik Petualang Cilik</h3>
+
+<p class="penulis"><span>Penulis :</span> Rafi Nugraha</p>
+
+<div class="mini-info">
+<span>?? Komik</span>
+<span>? 4.8</span>
+</div>
+
+<button class="koleksi-btn" onclick="toggleDetail(this)">
+Detail Buku
+</button>
+
+<div class="detail-buku">
+
+<p><span>Lokasi :</span> Lantai 3, Rak C10</p>
+
+<p class="status-tersedia">
+Tersedia
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 10 -->
+<div class="koleksi-card" data-title="cerdas bersama sains">
+
+<div class="badge">Rekomendasi</div>
+
+<img src="buku10.jpg">
+
+<div class="koleksi-info">
+
+<h3>Cerdas Bersama Sains</h3>
+
+<p class="penulis"><span>Penulis :</span> Maya Oktavia</p>
+
+<div class="mini-info">
+<span>?? Edukasi</span>
+<span>? 5.0</span>
+</div>
+
+<button class="koleksi-btn" onclick="toggleDetail(this)">
+Detail Buku
+</button>
+
+<div class="detail-buku">
+
+<p><span>Lokasi :</span> Lantai 2, Rak D15</p>
+
+<p class="status-tersedia">
+Tersedia
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- DIGITAL -->
+
+<div class="tab-content" id="digital">
+
+<div class="koleksi-grid">
+
+<div class="koleksi-card">
+
+<img src="ebook1.jpg">
+
+<div class="koleksi-info">
+
+<h3>E-Book Ceria Anak</h3>
+
+<p>Kumpulan cerita interaktif anak.</p>
+
+</div>
+
+</div>
+
+<div class="koleksi-card">
+
+<img src="ebook2.jpg">
+
+<div class="koleksi-info">
+
+<h3>Video Literasi</h3>
+
+<p>Belajar membaca dengan animasi.</p>
+
+</div>
+
+</div>
+
+<div class="koleksi-card">
+
+<img src="game.jpg">
+
+<div class="koleksi-info">
+
+<h3>Game Literasi Anak</h3>
+
+<p>Permainan edukasi seru untuk anak.</p>
+
+</div>
+
+</div>
+
+<div class="koleksi-card">
+
+<img src="audio.jpg">
+
+<div class="koleksi-info">
+
+<h3>Audio Dongeng Anak</h3>
+
+<p>Dongeng sebelum tidur yang menyenangkan.</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ARSIP -->
+
+<div class="tab-content" id="arsip">
+
+<div class="folder-box">
+
+<button class="folder-btn" onclick="toggleFolder(this)">
+Arsip Lomba Mewarnai
+</button>
+
+<div class="folder-content">
+
+<div class="folder-gallery">
+
+<img src="lomba1.jpg">
+<img src="lomba2.jpg">
+<img src="lomba3.jpg">
+<img src="lomba4.jpg">
+
+</div>
+
+</div>
+
+<button class="folder-btn" onclick="toggleFolder(this)">
+Galeri Juara Literasi
+</button>
+
+<div class="folder-content">
+
+<div class="folder-gallery">
+
+<img src="juara1.jpg">
+<img src="juara2.jpg">
+<img src="juara3.jpg">
+<img src="juara4.jpg">
+
+</div>
+
+</div>
+
+<button class="folder-btn" onclick="toggleFolder(this)">
+Arsip Kegiatan Perpustakaan
+</button>
+
+<div class="folder-content">
+
+<div class="folder-gallery">
+
+<img src="kegiatan1.jpg">
+<img src="kegiatan2.jpg">
+<img src="kegiatan3.jpg">
+<img src="kegiatan4.jpg">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>@ 2026 Littlerasi | Perpustakaan Digital Anak</p>
+
+</footer>
+
+<!-- GANTI SCRIPT LAMA KAMU DENGAN YANG INI -->
+
+<script>
+
+function showTab(tabId, event){
+
+let tabs = document.querySelectorAll(".tab-content");
+let buttons = document.querySelectorAll(".tab-btn");
+
+tabs.forEach(function(tab){
+    tab.classList.remove("active");
+});
+
+buttons.forEach(function(btn){
+    btn.classList.remove("active");
+});
+
+document.getElementById(tabId).classList.add("active");
+event.target.classList.add("active");
+
+}
+
+/* SEARCH OPAC */
+
+function cariBuku(){
+
+let input = document
+.getElementById("searchInput")
+.value
+.toLowerCase()
+.trim();
+
+let buku = document.querySelectorAll("#buku .koleksi-card");
+
+buku.forEach(function(item){
+
+let title = item.getAttribute("data-title").toLowerCase();
+
+let judul = item.querySelector("h3").innerText.toLowerCase();
+
+let penulis = item.querySelector(".penulis").innerText.toLowerCase();
+
+let kategori = item.querySelector(".mini-info span").innerText.toLowerCase();
+
+if(
+    title.includes(input) ||
+    judul.includes(input) ||
+    penulis.includes(input) ||
+    kategori.includes(input)
+){
+    item.style.display = "block";
+}
+
+else{
+    item.style.display = "none";
+}
+
+});
+
+/* kalau search kosong tampil semua */
+
+if(input === ""){
+
+buku.forEach(function(item){
+    item.style.display = "block";
+});
+
+}
+
+}
+
+/* ENTER KEY SEARCH */
+
+document.getElementById("searchInput")
+.addEventListener("keyup", function(event){
+
+if(event.key === "Enter"){
+    cariBuku();
+}
+
+});
+
+function toggleDetail(button){
+
+let detail = button.nextElementSibling;
+
+detail.classList.toggle("show");
+
+if(detail.classList.contains("show")){
+button.innerHTML = "Tutup";
+}
+
+else{
+button.innerHTML = "Detail Buku";
+}
+
+}
+
+function toggleFolder(button){
+
+let folder = button.nextElementSibling;
+
+folder.classList.toggle("show");
+
+}
+
+</script>
+
+</body>
+</html>

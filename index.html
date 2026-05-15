@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Littlerasi</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Fredoka', sans-serif;
+        }
+
+        body{
+            background:#fff9f2;
+            color:#444;
+        }
+
+        /* HEADER */
+
+        header{
+            background:#ffb703;
+            padding:18px 8%;
+            position:sticky;
+            top:0;
+            z-index:100;
+        }
+
+        nav{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            flex-wrap:wrap;
+        }
+
+        .logo{
+            color:white;
+            font-size:28px;
+            display:flex;
+            align-items:center;
+            gap:10px;
+        }
+
+        .logo-icon{
+            width:90px;
+            height:90px;
+        }
+
+        nav ul{
+            display:flex;
+            list-style:none;
+            gap:25px;
+        }
+
+        nav ul li a{
+            text-decoration:none;
+            color:white;
+            font-size:17px;
+            transition:0.3s;
+            position:relative;
+        }
+
+        nav ul li a::after{
+            content:'';
+            width:0;
+            height:3px;
+            background:white;
+            position:absolute;
+            left:0;
+            bottom:-7px;
+            border-radius:10px;
+            transition:0.3s;
+        }
+
+        nav ul li a:hover::after{
+            width:100%;
+        }
+
+        /* HERO */
+
+        .hero{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:80px 10%;
+            flex-wrap:wrap;
+            background:#fff3d6;
+        }
+
+        .hero-text{
+            flex:1;
+        }
+
+        .hero-text h2{
+            font-size:50px;
+            color:#fb8500;
+            margin-bottom:20px;
+        }
+
+        .hero-text p{
+            font-size:18px;
+            line-height:1.8;
+            margin-bottom:30px;
+        }
+
+        .btn{
+            display:inline-block;
+            padding:14px 30px;
+            background:#ff6b6b;
+            color:white;
+            text-decoration:none;
+            border-radius:40px;
+            transition:0.3s;
+            font-size:18px;
+        }
+
+        .btn:hover{
+            background:#ff4d4d;
+            transform:scale(1.05);
+        }
+
+        .hero-image{
+            flex:1;
+            text-align:center;
+        }
+
+        .hero-image img{
+            width:270px;
+        }
+
+        /* PROFIL USER */
+
+        .profil-user{
+            padding:70px 10%;
+            background:white;
+            display:flex;
+            justify-content:center;
+        }
+
+        .profil-card{
+            background:#fff3d6;
+            width:100%;
+            max-width:700px;
+            padding:30px;
+            border-radius:30px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.08);
+            transition:0.3s;
+            display:flex;
+            align-items:center;
+            gap:30px;
+        }
+
+        .profil-card:hover{
+            transform:translateY(-6px);
+        }
+
+        .foto-user{
+            position:relative;
+            flex-shrink:0;
+        }
+
+        .foto-user img{
+            width:130px;
+            height:130px;
+            border-radius:50%;
+            object-fit:cover;
+            border:5px solid white;
+        }
+
+        .edit-foto{
+            position:absolute;
+            bottom:5px;
+            right:5px;
+            background:#ff6b6b;
+            color:white;
+            width:35px;
+            height:35px;
+            border-radius:50%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:16px;
+            border:3px solid white;
+            cursor:pointer;
+        }
+
+        .profil-info{
+            flex:1;
+            text-align:left;
+        }
+
+        .profil-info h2{
+            font-size:30px;
+            color:#ff6b6b;
+            margin-bottom:8px;
+        }
+
+        .profil-info p{
+            font-size:17px;
+            margin-bottom:20px;
+            color:#666;
+        }
+
+        .progress-box h3{
+            font-size:18px;
+            margin-bottom:10px;
+        }
+
+        .progress-bar{
+            width:100%;
+            height:14px;
+            background:#eee;
+            border-radius:30px;
+            overflow:hidden;
+            margin-bottom:10px;
+        }
+
+        .progress{
+            width:75%;
+            height:100%;
+            background:#ffb703;
+            border-radius:30px;
+        }
+
+        .progress-box span{
+            font-size:15px;
+            color:#666;
+        }
+
+        .badge{
+            display:inline-block;
+            margin-top:18px;
+            background:#ff6b6b;
+            color:white;
+            padding:8px 18px;
+            border-radius:30px;
+            font-size:14px;
+            font-weight:500;
+        }
+
+        /* ABOUT */
+
+        .about{
+            padding:70px 10%;
+            text-align:center;
+            background:white;
+        }
+
+        .about h2{
+            font-size:38px;
+            color:#ff6b6b;
+            margin-bottom:20px;
+        }
+
+        .tujuan-box{
+            display:flex;
+            gap:25px;
+            justify-content:center;
+            flex-wrap:wrap;
+            margin-top:40px;
+        }
+
+        .tujuan-card{
+            background:#fff3d6;
+            width:260px;
+            padding:25px;
+            border-radius:20px;
+            transition:0.4s;
+            box-shadow:0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .tujuan-card:hover{
+            transform:translateY(-10px);
+        }
+
+        .tujuan-card h3{
+            color:#ff6b6b;
+            margin-bottom:15px;
+        }
+
+        /* INFO */
+
+        .info{
+            padding:80px 10%;
+            background:white;
+            text-align:center;
+        }
+
+        .info h2{
+            font-size:40px;
+            color:#fb8500;
+            margin-bottom:50px;
+        }
+
+        .info-container{
+            display:flex;
+            justify-content:center;
+            gap:25px;
+            flex-wrap:wrap;
+        }
+
+        .info-card{
+            width:280px;
+            background:#fff3d6;
+            padding:30px;
+            border-radius:25px;
+            transition:0.4s;
+        }
+
+        .info-card:hover{
+            transform:scale(1.05);
+        }
+
+        .info-card h3{
+            margin-bottom:15px;
+            color:#8338ec;
+        }
+
+        /* SERVICES */
+
+        .services{
+            padding:70px 10%;
+            background:#e0f7ff;
+            text-align:center;
+        }
+
+        .services h2{
+            font-size:40px;
+            margin-bottom:50px;
+            color:#219ebc;
+        }
+
+        .service-box{
+            display:flex;
+            gap:25px;
+            justify-content:center;
+            flex-wrap:wrap;
+        }
+
+        .service{
+            width:280px;
+            background:white;
+            padding:30px;
+            border-radius:20px;
+            box-shadow:0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .service h3{
+            margin-bottom:15px;
+            color:#fb8500;
+        }
+
+        .service p{
+            line-height:1.7;
+        }
+
+        /* AGENDA */
+
+        .agenda{
+            padding:70px 10%;
+            background:#e0f7ff;
+            text-align:center;
+        }
+
+        .agenda h2{
+            font-size:40px;
+            color:#ff6b6b;
+            margin-bottom:50px;
+        }
+
+        .agenda-container{
+            max-width:1200px;
+            margin:auto;
+            display:flex;
+            justify-content:center;
+            gap:30px;
+            flex-wrap:wrap;
+        }
+
+        .agenda-card{
+            background:white;
+            width:250px;
+            border-radius:20px;
+            overflow:hidden;
+            box-shadow:0 4px 12px rgba(0,0,0,0.1);
+            transition:0.4s;
+        }
+
+        .agenda-card:hover{
+            transform:translateY(-10px);
+        }
+
+        .agenda-card img{
+            width:100%;
+            height:180px;
+            object-fit:cover;
+        }
+
+        .agenda-card h3{
+            margin:18px 0 10px;
+            color:#219ebc;
+        }
+
+        .agenda-card p{
+            padding:0 20px 20px;
+            line-height:1.7;
+        }
+
+        /* BERITA */
+
+        .berita{
+            padding:70px 10%;
+            background:#fef6ff;
+            text-align:center;
+        }
+
+        .berita h2{
+            font-size:40px;
+            color:#ff6b6b;
+            margin-bottom:50px;
+        }
+
+        .berita-container{
+            max-width:1200px;
+            margin:auto;
+            display:flex;
+            justify-content:center;
+            gap:30px;
+            flex-wrap:wrap;
+        }
+
+        .berita-card{
+            background:white;
+            width:250px;
+            border-radius:25px;
+            overflow:hidden;
+            box-shadow:0 4px 12px rgba(0,0,0,0.1);
+            transition:0.4s;
+        }
+
+        .berita-card:hover{
+            transform:translateY(-10px);
+        }
+
+        .berita-card img{
+            width:100%;
+            height:220px;
+            object-fit:cover;
+        }
+
+        .berita-card h3{
+            margin:20px 0 10px;
+            color:#219ebc;
+        }
+
+        .berita-card p{
+            padding:0 20px 25px;
+            line-height:1.7;
+        }
+
+        /* SEE MORE */
+
+        .see-more{
+            max-width:1200px;
+            margin:25px auto 0;
+            display:flex;
+            justify-content:flex-end;
+        }
+
+        .see-more a{
+            text-decoration:none;
+            color:#8338ec;
+            font-size:17px;
+            font-weight:600;
+            transition:0.3s;
+        }
+
+        .see-more a:hover{
+            color:#ff6b6b;
+        }
+
+        /* FOOTER */
+
+        footer{
+            background:#ffb703;
+            text-align:center;
+            color:white;
+            padding:20px;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:768px){
+
+            nav{
+                flex-direction:column;
+                gap:15px;
+            }
+
+            .hero{
+                text-align:center;
+            }
+
+            .hero-text h2{
+                font-size:36px;
+            }
+
+            .hero-image img{
+                width:240px;
+                margin-top:30px;
+            }
+
+            .profil-card{
+                flex-direction:column;
+                text-align:center;
+            }
+
+            .profil-info{
+                text-align:center;
+            }
+
+            .see-more{
+                justify-content:center;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <nav>
+
+        <h1 class="logo">
+            <img src="icon.png" class="logo-icon">
+            Littlerasi
+        </h1>
+
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="profil.html">Profil</a></li>
+            <li><a href="koleksi.html">Koleksi</a></li>
+            <li><a href="layanan.html">Layanan</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+
+    </nav>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <h2>Perpustakaan Digital Anak yang Seru ✨</h2>
+
+        <p>
+            Membaca jadi lebih menyenangkan dengan koleksi buku digital,
+            cerita anak, komik edukasi, dan permainan literasi interaktif.
+        </p>
+
+        <a href="koleksi.html" class="btn">Mulai Membaca</a>
+
+    </div>
+
+    <div class="hero-image">
+
+        <img src="logo.png" alt="anak membaca">
+
+    </div>
+
+</section>
+
+<!-- PROFIL USER -->
+
+<section class="profil-user">
+
+    <div class="profil-card">
+
+        <div class="foto-user">
+
+            <img src="user.png">
+
+            <div class="edit-foto">
+                ✏️
+            </div>
+
+        </div>
+
+        <div class="profil-info">
+
+            <h2>Halo, Ayesha 🌸</h2>
+
+            <p>Member aktif Littlerasi</p>
+
+            <div class="progress-box">
+
+                <h3>📚 Progress Membaca</h3>
+
+                <div class="progress-bar">
+
+                    <div class="progress"></div>
+
+                </div>
+
+                <span>75% selesai membaca minggu ini</span>
+
+            </div>
+
+            <div class="badge">
+                🏆 Pembaca Aktif
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about">
+
+    <h2>🎯 Tujuan Diciptakannya Littlerasi</h2>
+
+    <div class="tujuan-box">
+
+        <div class="tujuan-card">
+            <h3>💻 Akses Digital</h3>
+            <p>Memberikan akses informasi kepada pengguna secara online.</p>
+        </div>
+
+        <div class="tujuan-card">
+            <h3>📚 Meningkatkan Literasi</h3>
+            <p>Meningkatkan minat baca dan literasi melalui media digital.</p>
+        </div>
+
+        <div class="tujuan-card">
+            <h3>🌈 Praktis & Efisien</h3>
+            <p>Menyediakan layanan perpustakaan yang lebih praktis dan efisien.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- INFO -->
+
+<section class="info">
+
+    <h2>📌 Ringkasan Informasi Penting</h2>
+
+    <div class="info-container">
+
+        <div class="info-card">
+            <h3>👦 Pengguna Aktif</h3>
+            <p>1.200+ pengguna aktif menggunakan Littlerasi setiap bulan.</p>
+        </div>
+
+        <div class="info-card">
+            <h3>📖 Koleksi Buku</h3>
+            <p>Tersedia lebih dari 81007 koleksi buku digital anak.</p>
+        </div>
+
+        <div class="info-card">
+            <h3>⏰ Akses Fleksibel</h3>
+            <p>Dapat diakses kapan saja dan di mana saja.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="services">
+
+    <h2>Layanan Kami 🎈</h2>
+
+    <div class="service-box">
+
+        <div class="service">
+            <h3>📖 Baca Online</h3>
+            <p>Anak dapat membaca buku kapan saja secara online.</p>
+        </div>
+
+        <div class="service">
+            <h3>🎧 Audio Book</h3>
+            <p>Dengarkan cerita menarik dengan suara yang menyenangkan.</p>
+        </div>
+
+        <div class="service">
+            <h3>🧠 Kuis Edukasi</h3>
+            <p>Belajar sambil bermain melalui kuis interaktif.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- AGENDA -->
+
+<section class="agenda">
+
+    <h2>📆 Agenda Mendatang</h2>
+
+    <div class="agenda-container">
+
+        <div class="agenda-card">
+
+            <img src="banner1.png">
+
+            <h3>Lomba Mewarnai 2026</h3>
+
+            <p>
+                Littlerasi mengadakan lomba untuk
+                mengasah kreativitas anak-anak.
+            </p>
+
+        </div>
+
+        <div class="agenda-card">
+
+            <img src="banner2.png">
+
+            <h3>Jadwal English Club</h3>
+
+            <p>
+                Anak-anak dapat belajar bahasa Inggris
+                dengan menyenangkan.
+            </p>
+
+        </div>
+
+        <div class="agenda-card">
+
+            <img src="banner3.png">
+
+            <h3>Lomba Baca Puisi</h3>
+
+            <p>
+                Littlerasi mengadakan lomba baca puisi 
+				untuk anak-anak Sekolah Dasar.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="see-more">
+        <a href="agenda.html">See More →</a>
+    </div>
+
+</section>
+
+<!-- BERITA -->
+
+<section class="berita">
+
+    <h2>📰 Berita Kegiatan Terbaru</h2>
+
+    <div class="berita-container">
+
+        <div class="berita-card">
+
+            <img src="banner4.png">
+
+            <h3>Storytelling day</h3>
+
+            <p>
+                Littlerasi mengadakan Kegiatan
+				membaca buku bersama.
+            </p>
+
+        </div>
+
+        <div class="berita-card">
+
+            <img src="banner5.png">
+
+            <h3>Kunjungan Murid TK</h3>
+
+            <p>
+                Murid-murid TK Tadika Tua berkunjung
+				ke littlerasi pada 08 Maret 2026
+            </p>
+
+        </div>
+
+        <div class="berita-card">
+
+            <img src="banner6.png">
+
+            <h3>Peluncuran Website Littlerasi</h3>
+
+            <p>
+                Website Littlerasi resmi diluncurkan
+				dan menjadi yang pertama di Tembalang
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="see-more">
+        <a href="berita.html">See More →</a>
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>© 2026 Littlerasi | Perpustakaan Digital Anak</p>
+
+</footer>
+
+</body>
+</html>
